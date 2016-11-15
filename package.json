@@ -15,5 +15,21 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-server": "^0.2.0"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cuidapao/Cuidapao.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cuidapao/Cuidapao.github.io/issues"
+  },
+  "homepage": "https://github.com/Cuidapao/Cuidapao.github.io#readme",
+  "description": ""
 }
