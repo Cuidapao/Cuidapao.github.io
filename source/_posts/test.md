@@ -10,9 +10,7 @@ tags:
 
 
 #### 用css3实现一个简单的slider轮播图
-
-
-	
+    ```bash
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -85,7 +83,7 @@ tags:
 
 	</body>
 	</html>
-	
+	```
 	
 	这样一个轮播图就出来了   大家看完如果觉得不错  就收藏一下⭐️⭐️⭐️⭐️⭐️
 

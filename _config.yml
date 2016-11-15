@@ -7,8 +7,8 @@ title: 挨踢丶崔同學
 subtitle:
 description: 华山论剑之-小白怎样成为大神？？？
 author: 崔佳敏
-language: ZH-TW
-timezone: zh-CN
+language:
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
