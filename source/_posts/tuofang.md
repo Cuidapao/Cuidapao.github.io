@@ -1,38 +1,39 @@
 ---
 title: Dragthe
 date: 2016-11-15 20:13:07
-tags:[javascript,html5 Drag,drop]
+tags: [javascript]
 ---
 
 
-##	 拖放
+## 拖放
 ##### 拖放是一种常见的特性，即抓取对象以后拖到另一个位置
 
-##  Examples
+## Examples
 
-##	  dragenter
+## dragenter
 
 
 	开始拖动
 	
-##  dragover	
+## dragover	
 
 	拖动中
 
-##	  dragleave	
+## dragleave	
 
 	拖动放开
 	
-##	  drop	
+## drop	
 
 	拖动完成
 
-##		Basis
+## Basis
 
 	把图片拖到这里试试		（这里就不做演示了）
 
 	
-##  css代码
+## css代码
+
 	#target_box{
   			max-width : 100%;
   			width: 300px;
@@ -53,14 +54,15 @@ tags:[javascript,html5 Drag,drop]
  			 max-width : 100%;
  			 display: block;
 		}
-##		html代码
+		
+## html代码
 
 	
 	<div id="target_box">把图片拖到这里试试</div>
 	<div id="show-drop" title="将拖动的图片在这里显示出来"></div>
 	
 	
-##  	js代码
+## js代码
 
 	function addEventListener(dom,event,callback){
     if(typeof dom == "string"){
@@ -114,11 +116,11 @@ tags:[javascript,html5 Drag,drop]
   	filereader.readAsDataURL(files);
 	});	
 
-##  base64图片
+## base64图片
 
 	如果需要实现图片上传，可以将转行后的 base64 上传到服务器，服务器将 base64 生成为图片
 	
 	
-####  这里如果希望大家能帮到大家的地方	
+#### 希望大家能帮到大家的地方	
 	
 	

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Dragthe | 挨踢丶崔同學</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="挨踢丶崔同學">
+	<img src="/favicon.png" alt="挨踢丶崔同學"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">新浪微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="http://t.qq.com/q945487939" target="_blank">腾讯微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://y.qq.com/portal/profile.html" target="_blank">QQ音乐 - 我的收藏</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      Dragthe
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h2 id="拖放"><a href="#拖放" class="headerlink" title="拖放"></a>拖放</h2><h5 id="拖放是一种常见的特性，即抓取对象以后拖到另一个位置"><a href="#拖放是一种常见的特性，即抓取对象以后拖到另一个位置" class="headerlink" title="拖放是一种常见的特性，即抓取对象以后拖到另一个位置"></a>拖放是一种常见的特性，即抓取对象以后拖到另一个位置</h5><h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h2 id="dragenter"><a href="#dragenter" class="headerlink" title="dragenter"></a>dragenter</h2><pre><code>开始拖动
+</code></pre><h2 id="dragover"><a href="#dragover" class="headerlink" title="dragover"></a>dragover</h2><pre><code>拖动中
+</code></pre><h2 id="dragleave"><a href="#dragleave" class="headerlink" title="dragleave"></a>dragleave</h2><pre><code>拖动放开
+</code></pre><h2 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h2><pre><code>拖动完成
+</code></pre><h2 id="Basis"><a href="#Basis" class="headerlink" title="Basis"></a>Basis</h2><pre><code>把图片拖到这里试试        （这里就不做演示了）
+</code></pre><h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h2><pre><code>#target_box{
+          max-width : 100%;
+          width: 300px;
+          height: 100px;
+          border: 1px solid red;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px; transition: all 0.5s;
+    }
+#target_box.droping{
+          color: red;
+          font-weight: blod;
+          font-size: 30px;
+    }
+
+#show-drop img{
+          max-width : 100%;
+          display: block;
+    }
+</code></pre><h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><pre><code>&lt;div id=&quot;target_box&quot;&gt;把图片拖到这里试试&lt;/div&gt;
+&lt;div id=&quot;show-drop&quot; title=&quot;将拖动的图片在这里显示出来&quot;&gt;&lt;/div&gt;
+</code></pre><h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><pre><code>function addEventListener(dom,event,callback){
+if(typeof dom == &quot;string&quot;){
+  document.querySelector(dom).addEventListener(event,callback);
+}else{
+  dom.addEventListener(event,callback);
+    }
+}
+//开始拖动
+addEventListener(document,&quot;dragenter&quot;,function(e){
+      e.preventDefault();
+     document.querySelector(&quot;#target_box&quot;).setAttribute(&quot;class&quot;,&quot;droping&quot;);
+});
+
+//拖动中
+addEventListener(document,&quot;dragover&quot;,function(e){
+      e.preventDefault();
+});
+
+//拖放完成
+addEventListener(document,&quot;drop&quot;,function(e){
+      e.preventDefault();
+});
+//拖放离开
+addEventListener(document,&quot;dragleave&quot;,function(e){
+      e.preventDefault();
+  document.querySelector(&quot;#target_box&quot;).setAttribute(&quot;class&quot;,&quot;&quot;);
+});
+//监听是否拖放当元素上后离开的
+    addEventListener(&quot;#target_box&quot;,&apos;drop&apos;,function(e){
+      e.preventDefault();//移除原有浏览器监听效果
+      var dataTransfer = e.dataTransfer;//获取文件对象
+       var files = dataTransfer.files[0];
+  //获取文件后缀
+  var match = files.name ? files.name.match(/\.([a-zA-Z]+)$/) || [] : false;
+   var suffix = match ? match[1] : &quot;&quot;;
+ //如果后缀不是图片
+  if(!suffix || [&quot;jpg&quot;,&quot;jpeg&quot;,&quot;png&quot;,&quot;gif&quot;].indexOf(suffix.toLocaleLowerCase()) &lt; 0){
+    return alert(&quot;你拖动的不是图片&quot;);
+  }
+  //读取文件的 base64 值
+      var filereader = new FileReader();
+      addEventListener(filereader,&apos;load&apos;,function(ee){
+//获取 base64 编码
+var base64 = ee.target.result;
+var img = document.createElement(&quot;img&quot;);
+img.src = base64;
+//将图片添加到页面中
+document.querySelector(&quot;#show-drop&quot;).appendChild(img);
+  });
+  filereader.readAsDataURL(files);
+});    
+</code></pre><h2 id="base64图片"><a href="#base64图片" class="headerlink" title="base64图片"></a>base64图片</h2><pre><code>如果需要实现图片上传，可以将转行后的 base64 上传到服务器，服务器将 base64 生成为图片
+</code></pre><h4 id="希望大家能帮到大家的地方"><a href="#希望大家能帮到大家的地方" class="headerlink" title="希望大家能帮到大家的地方"></a>希望大家能帮到大家的地方</h4>
+	</div>
+	<div class="meta split">
+		<time class="post-date" datetime="2016-11-15T12:13:07.000Z" itemprop="datePublished">2016-11-15</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="tuofang" data-title="Dragthe" data-url="http://yoursite.com/2016/11/15/tuofang/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"Cuidapao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://img4.imgtn.bdimg.com/it/u=339094109,3568493369&amp;fm=21&amp;gp=0.jpg' alt='崔佳敏'>
+					<div class="media__body">
+						<h4>挨踢丶崔同學</h4>
+						<p class='site-description'>华山论剑之-小白怎样成为大神？？？</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/Cuidapao/Cuidapao.github.io.git" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
