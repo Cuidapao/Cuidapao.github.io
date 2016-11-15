@@ -21,7 +21,10 @@ sidebar:
       name: 腾讯微博
       link: http://t.qq.com/q945487939
       target: _blank
-
+    -
+      name: QQ音乐 - 我的收藏
+      link: https://y.qq.com/portal/profile.html
+      target: _blank
 # comments
 comments:
   duoshuo_username:  wj200819
