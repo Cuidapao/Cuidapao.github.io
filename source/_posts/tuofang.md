@@ -1,7 +1,7 @@
 ---
 title: Dragthe
 date: 2016-11-15 20:13:07
-tags: [javascript]
+tags: [javascript,CSS]
 ---
 
 
