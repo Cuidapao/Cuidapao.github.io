@@ -1,0 +1,52 @@
+# site icon
+favicon: /favicon.png
+
+# author headimg
+headimg: http://img4.imgtn.bdimg.com/it/u=339094109,3568493369&fm=21&gp=0.jpg
+
+# search
+search: 
+    enable: true
+    placeholder: Enter Key...
+
+# sidebar
+sidebar: 
+  enable: true
+  menus:
+    -
+      name: 新浪微博
+      link: http://weibo.com/6027477149/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1
+      target: _blank
+    -
+      name: 腾讯微博
+      link: http://t.qq.com/q945487939
+      target: _blank
+
+# comments
+comments:
+  duoshuo_username:  http://duoshuo.com/
+  #disqus_username: yumemor
+
+# accounts support weibo/github/zhihu/twitter/douban 
+# display to former three
+social: 
+  -
+    name: weibo
+    link: http://weibo.com/6027477149/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1
+  -
+    name: github
+    link: https://cuidapao.github.io/
+  -
+    name: zhihu
+    link: https://www.zhihu.com/
+#  -
+#    name: twitter
+#    link: 
+#  -
+#    name: douban
+#    link:    
+
+
+
+
+
