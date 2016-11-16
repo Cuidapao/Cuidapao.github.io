@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>vue | 挨踢丶崔同學</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="挨踢丶崔同學">
+	<img src="/favicon.png" alt="挨踢丶崔同學"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">新浪微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="http://t.qq.com/q945487939" target="_blank">腾讯微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://y.qq.com/portal/profile.html" target="_blank">QQ音乐 - 我的收藏</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      vue
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h1 id="基于-Vue-的直播播放器实战"><a href="#基于-Vue-的直播播放器实战" class="headerlink" title="基于 Vue 的直播播放器实战"></a>基于 Vue 的直播播放器实战</h1><p><img src="http://7xr2s7.com1.z0.glb.clouddn.com/%E5%9F%BA%E4%BA%8E%20Vue%20%E7%9A%84%E7%9B%B4%E6%92%AD%E6%92%AD%E6%94%BE%E5%99%A8%E5%AE%9E%E6%88%98.jpeg" alt="Mou icon"></p>
+<h2 id="–前言–"><a href="#–前言–" class="headerlink" title=" –前言– "></a><font style="color:red"> –前言– </font></h2><h4 id="时下直播的盛行让很多人对直播技术产生浓厚的兴趣，orange-本人也不例外，本文借着实战的目的完成一个-demo，并没有深入的讲解直播技术的实现原理以及推流和拉流的实现，为什么不深入讲解直播的底层技术，原因很简单大公司没必要看我的文章去了解如何搭建直播服务器，小企业又没有不要去搭建自己的直播服务器，因为涉及到的技术繁杂又琐碎，感兴趣的直接谷歌，各位大神有不同深度的讲解怎么去搭建自己的直播服务器，那么小企业人员、资金和技术有限怎么办，没错！买服务！！！"><a href="#时下直播的盛行让很多人对直播技术产生浓厚的兴趣，orange-本人也不例外，本文借着实战的目的完成一个-demo，并没有深入的讲解直播技术的实现原理以及推流和拉流的实现，为什么不深入讲解直播的底层技术，原因很简单大公司没必要看我的文章去了解如何搭建直播服务器，小企业又没有不要去搭建自己的直播服务器，因为涉及到的技术繁杂又琐碎，感兴趣的直接谷歌，各位大神有不同深度的讲解怎么去搭建自己的直播服务器，那么小企业人员、资金和技术有限怎么办，没错！买服务！！！" class="headerlink" title="时下直播的盛行让很多人对直播技术产生浓厚的兴趣，orange 本人也不例外，本文借着实战的目的完成一个 demo，并没有深入的讲解直播技术的实现原理以及推流和拉流的实现，为什么不深入讲解直播的底层技术，原因很简单大公司没必要看我的文章去了解如何搭建直播服务器，小企业又没有不要去搭建自己的直播服务器，因为涉及到的技术繁杂又琐碎，感兴趣的直接谷歌，各位大神有不同深度的讲解怎么去搭建自己的直播服务器，那么小企业人员、资金和技术有限怎么办，没错！买服务！！！"></a>时下直播的盛行让很多人对直播技术产生浓厚的兴趣，orange 本人也不例外，本文借着实战的目的完成一个 demo，并没有深入的讲解直播技术的实现原理以及推流和拉流的实现，为什么不深入讲解直播的底层技术，原因很简单大公司没必要看我的文章去了解如何搭建直播服务器，小企业又没有不要去搭建自己的直播服务器，因为涉及到的技术繁杂又琐碎，感兴趣的直接谷歌，各位大神有不同深度的讲解怎么去搭建自己的直播服务器，那么小企业人员、资金和技术有限怎么办，没错！买服务！！！</h4><h4 id="直播云服务也是今年的一个亮点，各大云平台都在做直播的服务，至于快慢选择的话-orange-只用过七牛云直播，没办法拿数据给大家建议"><a href="#直播云服务也是今年的一个亮点，各大云平台都在做直播的服务，至于快慢选择的话-orange-只用过七牛云直播，没办法拿数据给大家建议" class="headerlink" title="直播云服务也是今年的一个亮点，各大云平台都在做直播的服务，至于快慢选择的话 orange 只用过七牛云直播，没办法拿数据给大家建议"></a>直播云服务也是今年的一个亮点，各大云平台都在做直播的服务，至于快慢选择的话 orange 只用过七牛云直播，没办法拿数据给大家建议</h4><h4 id="七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上七牛官网-其次看-github-上的库"><a href="#七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上七牛官网-其次看-github-上的库" class="headerlink" title="七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上七牛官网,其次看 github 上的库"></a>七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上<a href="http://developer.qiniu.com/article/index.html#pili/" target="_blank" rel="external">七牛官网</a>,其次看 <a href="https://github.com/pili-engineering" target="_blank" rel="external">github 上的库</a></h4><h4 id="整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个斗鱼的-OBS-教程"><a href="#整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个斗鱼的-OBS-教程" class="headerlink" title="整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个斗鱼的 OBS 教程"></a>整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个<a href="https://www.douyu.com/cms/zhibo/201311/13/250.shtml" target="_blank" rel="external">斗鱼的 OBS 教程</a></h4><pre><code>注：以上的直播空间的搭建没有完成也可以看本文，更希望大家可以做成一个完整的 demo，我们的重点还是在于播放器的实现。
+</code></pre><h2 id="–直播协议–"><a href="#–直播协议–" class="headerlink" title=" –直播协议– "></a><font style="color:red"> –直播协议– </font></h2><h4 id="首先，需要知道直播的常用协议，RTMP-和-HLS，经过测试在七牛云直播平台不采用加速的情况下-RTMP-的延时在-10s-内，HLS-在-10-20s。经过优化后的还没测试过。"><a href="#首先，需要知道直播的常用协议，RTMP-和-HLS，经过测试在七牛云直播平台不采用加速的情况下-RTMP-的延时在-10s-内，HLS-在-10-20s。经过优化后的还没测试过。" class="headerlink" title="首先，需要知道直播的常用协议，RTMP 和 HLS，经过测试在七牛云直播平台不采用加速的情况下 RTMP 的延时在 10s 内，HLS 在 10-20s。经过优化后的还没测试过。"></a>首先，需要知道直播的常用协议，RTMP 和 HLS，经过测试在七牛云直播平台不采用加速的情况下 RTMP 的延时在 10s 内，HLS 在 10-20s。经过优化后的还没测试过。</h4><h4 id="至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接直播协议的选择：RTMP-vs-HLS"><a href="#至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接直播协议的选择：RTMP-vs-HLS" class="headerlink" title="至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接直播协议的选择：RTMP vs. HLS"></a>至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接<a href="http://www.samirchen.com/ios-rtmp-vs-hls/" target="_blank" rel="external">直播协议的选择：RTMP vs. HLS</a></h4><h2 id="–Vue-结合–"><a href="#–Vue-结合–" class="headerlink" title=" –Vue 结合– "></a><font style="color:red"> –Vue 结合– </font></h2><h4 id="做过-H5-播放器的对与-video-js-并不陌生，实现的出发点也是在-video-js-上，默认大家都有-Vue-搭建和简单运用能力了，没有经验的可以看-orange-之前写的入门文章。"><a href="#做过-H5-播放器的对与-video-js-并不陌生，实现的出发点也是在-video-js-上，默认大家都有-Vue-搭建和简单运用能力了，没有经验的可以看-orange-之前写的入门文章。" class="headerlink" title="做过 H5 播放器的对与 video.js 并不陌生，实现的出发点也是在 video.js 上，默认大家都有 Vue 搭建和简单运用能力了，没有经验的可以看 orange 之前写的入门文章。"></a>做过 H5 播放器的对与 video.js 并不陌生，实现的出发点也是在 video.js 上，默认大家都有 Vue 搭建和简单运用能力了，没有经验的可以看 orange 之前写的入门文章。</h4><p>首先我们要新建一个组件，这个组件就是播放器的组件，组件名随意，最初的想法是直接使用 video.js，但是踩的坑比较深所以不推荐直接使用。</p>
+<pre><code>坑：首次载入不会有问题，路由跳转后再回来如果不刷新页面，import 进来的 videojs 并不会执行，所以需要在 mounted 里执行 videojs() 函数，然后传对应的参数进去，最后需要加入下面代码防止监听函数在切换路由后继续执行。
+</code></pre><h4 id="坑也踩完了，于是逛了一圈-github，发现了一个项目叫-vue-video-player"><a href="#坑也踩完了，于是逛了一圈-github，发现了一个项目叫-vue-video-player" class="headerlink" title="坑也踩完了，于是逛了一圈 github，发现了一个项目叫 vue-video-player"></a>坑也踩完了，于是逛了一圈 github，发现了一个项目叫 vue-video-player</h4><h4 id="先安装依赖"><a href="#先安装依赖" class="headerlink" title="先安装依赖"></a>先安装依赖</h4><pre><code>npm install vue-video-player --save
+</code></pre><h4 id="引用依赖"><a href="#引用依赖" class="headerlink" title="引用依赖"></a>引用依赖</h4><pre><code>// import with ES6
+import Vue from &apos;vue&apos;
+...
+import VideoPlayer from &apos;vue-video-player&apos;
+
+
+// require with Node.js/Webpack
+var Vue = require(&apos;vue&apos;)
+...
+var VideoPlayer = require(&apos;vue-video-player&apos;)
+
+// The default is to turn off some of the features, you can choose according to their use of certain     features enabled, do not enable the introduction will not require the corresponding file. 默认有些功能    是不开启的，比如youtube国内不能用，则默认是关闭的，如果不启用对应的功能，则不会引入对应的包，减少项目代码体积，当然也有    可能意味着对应的功能可能会出错，true 是开启，false是关闭，正常情况使用者不需要care就可以。
+
+// Example(Only applies to the current global mode). 用配置项的话仅支持全局模式来配置，否则不会生效
+VideoPlayer.config({
+  youtube: true, // default false
+  switcher: false, // default true
+  hls: false // default true
+})
+
+// use
+Vue.use(VideoPlayer)
+
+// --------------------------------------
+
+// or use with component(ES6)
+import Vue from &apos;vue&apos;
+// ...
+import { videoPlayer } from &apos;vue-video-player&apos;
+
+// use
+export default {
+  components: {
+    videoPlayer
+  }
+}
+</code></pre><h4 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h4><h4 id="这里默认给出了-HLS-的方案，我们先去全局引入，到-main-js"><a href="#这里默认给出了-HLS-的方案，我们先去全局引入，到-main-js" class="headerlink" title="这里默认给出了 HLS 的方案，我们先去全局引入，到 main.js"></a>这里默认给出了 HLS 的方案，我们先去全局引入，到 main.js</h4><pre><code>import VideoPlayer from &apos;vue-video-player&apos;;
+
+VideoPlayer.config({
+  youtube: true,
+  switcher: true,
+  hls: true
+})
+
+Vue.use(VideoPlayer)
+</code></pre><h4 id="下面看下我的-component"><a href="#下面看下我的-component" class="headerlink" title="下面看下我的 component"></a>下面看下我的 component</h4><pre><code>&lt;template&gt;
+      &lt;video-player :options=&quot;videoOptions&quot;&gt;&lt;/video-player&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &apos;Play&apos;,
+  data () {
+    return {
+      videoOptions: {
+        source: {
+          type: &quot;application/x-mpegURL&quot;,
+          src: &apos;https://logos-channel.scaleengine.net/logos-channel/live/biblescreen-ad-free/    playlist.m3u8&apos;,
+          withCredentials: false
+        },
+        language: &apos;zh-CN&apos;,
+        live: true,
+        autoplay: true,
+        height: 540
+          }
+         }
+      }
+ }
+&lt;/script&gt;
+</code></pre><h4 id="到这里你的播放器就可以播放-HLS-链接了"><a href="#到这里你的播放器就可以播放-HLS-链接了" class="headerlink" title="到这里你的播放器就可以播放 HLS 链接了"></a>到这里你的播放器就可以播放 HLS 链接了</h4><h4 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h4><h4 id="上面说到库底层还是依赖-video-js，-所以呢我们不妨直接这样使用"><a href="#上面说到库底层还是依赖-video-js，-所以呢我们不妨直接这样使用" class="headerlink" title="上面说到库底层还是依赖 video.js， 所以呢我们不妨直接这样使用"></a>上面说到库底层还是依赖 video.js， 所以呢我们不妨直接这样使用</h4><pre><code>export default {
+      name: &apos;Play&apos;,
+       data () {
+        return {
+           videoOptions: {
+           source: {
+              type: &quot;rtmp/mp4&quot;,
+               src: &apos;rtmp://your.streaming.provider.net/cfx/st/&amp;mp4:path/to/video.mp4&apos;,
+             withCredentials: false
+            },
+            language: &apos;zh-CN&apos;,
+            live: true,
+            autoplay: true,
+            height: 540
+          }
+     }
+    }
+}
+</code></pre><h2 id="–总结–"><a href="#–总结–" class="headerlink" title=" –总结– "></a><font style="color:red"> –总结– </font></h2><h4 id="两种方法均可尝试，上面给出的-src-换成自己的链接就实现拉流播放啦，当然你如果不用-vue-的话也没关系，直接参照-video-js-的官网，单是-RTMP-的话不需要第三方库，如果是-HLS-的话需要引入videojs-contrib-hls，看具体情况而定。"><a href="#两种方法均可尝试，上面给出的-src-换成自己的链接就实现拉流播放啦，当然你如果不用-vue-的话也没关系，直接参照-video-js-的官网，单是-RTMP-的话不需要第三方库，如果是-HLS-的话需要引入videojs-contrib-hls，看具体情况而定。" class="headerlink" title="两种方法均可尝试，上面给出的 src 换成自己的链接就实现拉流播放啦，当然你如果不用 vue 的话也没关系，直接参照 video.js 的官网，单是 RTMP 的话不需要第三方库，如果是 HLS 的话需要引入videojs-contrib-hls，看具体情况而定。"></a>两种方法均可尝试，上面给出的 src 换成自己的链接就实现拉流播放啦，当然你如果不用 vue 的话也没关系，直接参照 video.js 的官网，单是 RTMP 的话不需要第三方库，如果是 HLS 的话需要引入<a href="https://github.com/videojs/videojs-contrib-hls" target="_blank" rel="external">videojs-contrib-hls</a>，看具体情况而定。</h4><p>🔗原文链接: <a href="http://orangexc.xyz/2016/11/14/Live-video-player/" target="_blank" rel="external">http://orangexc.xyz/2016/11/14/Live-video-player/</a> by @Orange</p>
+
+	</div>
+	<div class="meta split">
+		<time class="post-date" datetime="2016-11-16T02:42:11.000Z" itemprop="datePublished">2016-11-16</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="vue" data-title="vue" data-url="http://yoursite.com/2016/11/16/vue/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"Cuidapao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://img4.imgtn.bdimg.com/it/u=339094109,3568493369&amp;fm=21&amp;gp=0.jpg' alt='崔佳敏'>
+					<div class="media__body">
+						<h4>挨踢丶崔同學</h4>
+						<p class='site-description'>华山论剑之-小白怎样成为大神？？？</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/Cuidapao/Cuidapao.github.io.git" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
