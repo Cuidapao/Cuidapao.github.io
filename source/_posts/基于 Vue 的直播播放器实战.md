@@ -13,9 +13,9 @@ tags: [vue,基于vue直播播放器实战]
 
 #### 直播云服务也是今年的一个亮点，各大云平台都在做直播的服务，至于快慢选择的话 Dimple 只用过七牛云直播，没办法拿数据给大家建议
 
-#### 七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上[七牛官网](http://developer.qiniu.com/article/index.html#pili/),其次看 [github 上的库](https://github.com/pili-engineering)
+#### 七牛的文档给的比较详细，如何获得自己的直播空间，如何绑定备案域名，如何解析域名，如何创建直播间以及整个的工作流程先上[ <font style="color:blue">《JavaScript闯关记》</font> ](http://developer.qiniu.com/article/index.html#pili/),其次看 [<font style="color:blue">github 上的库</font>](https://github.com/pili-engineering)
 
-#### 整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个[斗鱼的 OBS 教程](https://www.douyu.com/cms/zhibo/201311/13/250.shtml)
+#### 整个过程相信大家都能顺利完成，说到我们的播放器拉流，那么播放的来源怎么获取呢？有安卓和ios开发经验的可以用移动端推流，没有经验的也不要紧推荐一个[<font style="color:blue">斗鱼的 OBS 教程</font>](https://www.douyu.com/cms/zhibo/201311/13/250.shtml)
 
 
 
@@ -25,7 +25,7 @@ tags: [vue,基于vue直播播放器实战]
 
 #### 首先，需要知道直播的常用协议，RTMP 和 HLS，经过测试在七牛云直播平台不采用加速的情况下 RTMP 的延时在 10s 内，HLS 在 10-20s。经过优化后的还没测试过。
 
-#### 至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接[直播协议的选择：RTMP vs. HLS](http://www.samirchen.com/ios-rtmp-vs-hls/)
+#### 至于这两个协议的选择还需要根据实际情况而定（只看延时大小是不对滴），还是给链接[<font style="blue">直播协议的选择：RTMP vs. HLS</font>](http://www.samirchen.com/ios-rtmp-vs-hls/)
 
 ## <font style="color:red"> --Vue 结合-- </font>
 
@@ -152,6 +152,6 @@ tags: [vue,基于vue直播播放器实战]
 	}
 ## <font style="color:red"> --总结-- </font>
 
-#### 两种方法均可尝试，上面给出的 src 换成自己的链接就实现拉流播放啦，当然你如果不用 vue 的话也没关系，直接参照 video.js 的官网，单是 RTMP 的话不需要第三方库，如果是 HLS 的话需要引入[videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls)，看具体情况而定。
+#### 两种方法均可尝试，上面给出的 src 换成自己的链接就实现拉流播放啦，当然你如果不用 vue 的话也没关系，直接参照 video.js 的官网，单是 RTMP 的话不需要第三方库，如果是 HLS 的话需要引入[<font style="color:blue">videojs-contrib-hls</font>](https://github.com/videojs/videojs-contrib-hls)，看具体情况而定。
 
 🔗原文链接: [http://orangexc.xyz/2016/11/14/Live-video-player/](http://orangexc.xyz/2016/11/14/Live-video-player/) by @Orange

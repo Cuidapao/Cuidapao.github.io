@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>gulp-入门教程 | Dimple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="Dimple">
+	<img src="/favicon.png" alt="Dimple"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">新浪微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="http://t.qq.com/q945487939" target="_blank">腾讯微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://y.qq.com/portal/profile.html" target="_blank">QQ音乐 - 我的收藏</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      gulp-入门教程
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h1 id="gulp入门教程详解"><a href="#gulp入门教程详解" class="headerlink" title="gulp入门教程详解"></a>gulp入门教程详解</h1><p>最近使用gulp自动化构建工具来开发网站，在此给大家分享一下使用gulp的一些使用教程。</p>
+<h2 id="一、-gulp安装"><a href="#一、-gulp安装" class="headerlink" title="一、 gulp安装"></a>一、 gulp安装</h2><h4 id="1、安装nodejs"><a href="#1、安装nodejs" class="headerlink" title="1、安装nodejs"></a>1、安装nodejs</h4><pre><code>1.1、说明：gulp是基于nodejs，理所当然需要安装nodejs
+
+1.2、安装：打开[&lt;font style=&quot;blue&quot;&gt;nodejs官网&lt;/font&gt;](https://nodejs.org/en/)，点击硕大的绿色Download按钮，它会根据系统信息选择对应版本（.msi文件）。
+</code></pre><h4 id="2、全局安装gulp"><a href="#2、全局安装gulp" class="headerlink" title="2、全局安装gulp"></a>2、全局安装gulp</h4><pre><code>2.1、说明：全局安装gulp目的是为了通过她执行gulp任务；
+
+2.2、安装：命令提示符执行npm install gulp -g；
+
+2.3、查看是否正确安装：命令提示符执行gulp -v，出现版本号即为正确安装。
+</code></pre><h4 id="3、新建package-json文件"><a href="#3、新建package-json文件" class="headerlink" title="3、新建package.json文件"></a>3、新建package.json文件</h4><pre><code>3.1、说明：package.json是基于nodejs项目必不可少的配置文件，它是存放在项目根目录的普通json文件；
+
+3.2、执行命令提示符执行npm init进行手动安装
+
+3.3、安装完成后会在当前文件夹下看到如下package.json文件
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/3164024-76d2e9fa62a00632.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Mou icon">       </p>
+<h4 id="package-json文件"><a href="#package-json文件" class="headerlink" title="package.json文件"></a>package.json文件</h4><pre><code> 文件说明：
+
+&quot;name&quot;:&quot;test&quot;,//项目名称（必须）
+
+&quot;version&quot;:&quot;1.0.0&quot;,//项目版本（必须）
+
+&quot;description&quot;:&quot;This is for study gulp project !&quot;,//项目描述（必须）
+
+&quot;devDependencies&quot;:{//项目依赖的插件
+
+ 3.4、查看package.json帮助文档，命令提示符执行npm help package.json
+</code></pre><h4 id="4、安装本地gulp及其常用插件"><a href="#4、安装本地gulp及其常用插件" class="headerlink" title="4、安装本地gulp及其常用插件"></a>4、安装本地gulp及其常用插件</h4><pre><code> 4.1、执行命令行npm install gulp 安装本地gulp
+
+4.2、安装gulp插件：以gulp—sass为例
+
+执行命令npm install gulp-sass即可安装gulp-sass插件，安装完成后即可在node_modules文件夹下查看到新安装的插件
+</code></pre><h4 id="5、新建gulpfile-js文件（重要）"><a href="#5、新建gulpfile-js文件（重要）" class="headerlink" title="5、新建gulpfile.js文件（重要）"></a>5、新建gulpfile.js文件（重要）</h4><pre><code> 5.1、说明：gulpfile.js是gulp项目的配置文件，是位于项目根目录的普通js文件（其实将gulpfile.js放入其他文件夹下亦可）
+
+ 5.2、gulpfile.js文件用法（以gulp-sass为例）
+
+     5.2.1 导入工具包 require(&apos;node_modules里对应模块&apos;)
+
+         var gulp=require(&apos;gulp&apos;)
+
+         var less=require(&apos;gulp-less&apos;);
+
+     5.2.2 定义一个testLess任务（自定义任务名称）
+
+gulp.task(&apos;testLess&apos;,function(){
+
+    gulp.src(&apos;src/less/index.less&apos;)     //该任务针对的文件
+
+    .pipe(less())      //该任务调用的模块
+
+    .pipe(gulp.dest(&apos;src/css&apos;));     //将会在src/css下生成index.css
+
+});
+
+gulp.task(&quot;default&quot;,[&quot;watch&quot;],function(){ //定义默认任务 并让gulp监视文件变化自动执行
+
+gulp.watch(&quot;sass/*.scss&quot;,[&quot;sass&quot;]);       
+
+})
+</code></pre><h2 id="二、gulp常用插件"><a href="#二、gulp常用插件" class="headerlink" title="二、gulp常用插件"></a>二、gulp常用插件</h2><h4 id="1、gulp-uglify-JS压缩"><a href="#1、gulp-uglify-JS压缩" class="headerlink" title="1、gulp-uglify(JS压缩)"></a>1、gulp-uglify(JS压缩)</h4><h5 id="安装：npm-install-–save-dev-gulp-uglify"><a href="#安装：npm-install-–save-dev-gulp-uglify" class="headerlink" title="安装：npm install –save-dev gulp-uglify"></a>安装：npm install –save-dev gulp-uglify</h5><h4 id="gulpfile-js代码如下："><a href="#gulpfile-js代码如下：" class="headerlink" title="gulpfile.js代码如下："></a>gulpfile.js代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;),
+
+var rename= require(&apos;gulp-rename&apos;)
+
+var uglify= require(&quot;gulp-uglify&quot;);
+
+gulp.task(&apos;rename&apos;,function() {
+
+    gulp.src(&apos;src/**/*.js&apos;)
+
+    .pipe(uglify())//压缩
+
+    .pipe(rename(&apos;index.min.js&apos;))    
+
+    .pipe(gulp.dest(&apos;build/js&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;rename&apos;]);
+
+uglify= require(&quot;gulp-uglify&quot;);
+</code></pre><h4 id="2、gulp-minify-html（html压缩）"><a href="#2、gulp-minify-html（html压缩）" class="headerlink" title="2、gulp-minify-html（html压缩）"></a>2、gulp-minify-html（html压缩）</h4><h4 id="安装：npm-install-–save-dev-gulp-minify-html"><a href="#安装：npm-install-–save-dev-gulp-minify-html" class="headerlink" title="安装：npm install –save-dev gulp-minify-html"></a>安装：npm install –save-dev gulp-minify-html</h4><h4 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;),
+
+var minifyHtml= require(&quot;gulp-minify-html&quot;);
+
+gulp.task(&apos;minify-html&apos;,function() {
+
+    gulp.src(&apos;src/**/*.html&apos;)//要压缩的html文件
+
+    .pipe(minifyHtml())//压缩
+
+    .pipe(gulp.dest(&apos;build&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;minify-html&apos;]);
+</code></pre><h4 id="3、-gulp-concat-js文件合并"><a href="#3、-gulp-concat-js文件合并" class="headerlink" title="3、 gulp-concat (js文件合并)"></a>3、 gulp-concat (js文件合并)</h4><h4 id="安装：npm-install-–save-dev-gulp-concat"><a href="#安装：npm-install-–save-dev-gulp-concat" class="headerlink" title="安装：npm install –save-dev gulp-concat"></a>安装：npm install –save-dev gulp-concat</h4><h4 id="代码如下：-1"><a href="#代码如下：-1" class="headerlink" title="代码如下："></a>代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;),
+
+concat= require(&quot;gulp-concat&quot;);
+
+gulp.task(&apos;concat&apos;,function() {
+
+ gulp.src(&apos;src/**/*.js&apos;)  //要合并的文件
+
+ .pipe(concat(&apos;index.js&apos;))  //合并匹配到的js文件并命名为 &quot;index.js&quot;
+
+ .pipe(gulp.dest(&apos;build/js&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;concat&apos;]);
+</code></pre><h4 id="4、gulp-jada"><a href="#4、gulp-jada" class="headerlink" title="4、gulp-jada"></a>4、gulp-jada</h4><h4 id="安装：npm-install-–save-dev-gulp-jada"><a href="#安装：npm-install-–save-dev-gulp-jada" class="headerlink" title="安装：npm install –save-dev  gulp-jada"></a>安装：npm install –save-dev  gulp-jada</h4><h4 id="Gulpfile-js代码如下："><a href="#Gulpfile-js代码如下：" class="headerlink" title="Gulpfile.js代码如下："></a>Gulpfile.js代码如下：</h4><pre><code>var gulp= require(&apos;gulp&apos;);
+
+var jade= require(&apos;gulp-jade&apos;);
+
+gulp.task(&quot;jade&quot;,function(){
+
+gulp.src(&quot;./jade/*.jade&quot;)
+
+    .pipe(jade({
+
+    pretty:true
+
+}))
+
+    .pipe(gulp.dest(&quot;html/&quot;))
+
+})
+
+    gulp.task(&quot;default&quot;,[&quot;watch&quot;],function(){
+
+    gulp.watch(&quot;jade/*.jade&quot;,[&quot;jade&quot;]);
+
+})
+</code></pre><h4 id="4、gulp-less"><a href="#4、gulp-less" class="headerlink" title="4、gulp-less"></a>4、gulp-less</h4><h4 id="安装：npm-install-–save-dev-gulp-less"><a href="#安装：npm-install-–save-dev-gulp-less" class="headerlink" title="安装：npm install –save-dev  gulp-less"></a>安装：npm install –save-dev  gulp-less</h4><h4 id="Gulpfile-js代码如下：-1"><a href="#Gulpfile-js代码如下：-1" class="headerlink" title="Gulpfile.js代码如下："></a>Gulpfile.js代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;),
+
+var less= require(&quot;gulp-less&quot;);
+
+gulp.task(&apos;compile-less&apos;,function() {
+
+  gulp.src(&apos;src/less/*.less&apos;)
+
+  .pipe(less())
+
+  .pipe(gulp.dest(&apos;build/css&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;compile-less&apos;]);
+</code></pre><h4 id="5、gulp-sass"><a href="#5、gulp-sass" class="headerlink" title="5、gulp-sass"></a>5、gulp-sass</h4><h4 id="安装：npm-install-–save-dev-gulp-sass"><a href="#安装：npm-install-–save-dev-gulp-sass" class="headerlink" title="安装：npm install –save-dev  gulp-sass"></a>安装：npm install –save-dev  gulp-sass</h4><h4 id="代码如下：-2"><a href="#代码如下：-2" class="headerlink" title="代码如下："></a>代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;),
+
+var sass= require(&quot;gulp-sass&quot;);
+
+gulp.task(&apos;compile-sass&apos;,function() {
+     gulp.src(&apos;src/sass/*.sass&apos;)
+
+     .pipe(sass())
+
+     .pipe(gulp.dest(&apos;build/css&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;compile-sass&apos;]);
+</code></pre><h4 id="6、gulp-imagemin（图片压缩）"><a href="#6、gulp-imagemin（图片压缩）" class="headerlink" title="6、gulp-imagemin（图片压缩）"></a>6、gulp-imagemin（图片压缩）</h4><h4 id="安装：npm-install-–save-dev-gulp-imagemin"><a href="#安装：npm-install-–save-dev-gulp-imagemin" class="headerlink" title="安装：npm install –save-dev  gulp-imagemin"></a>安装：npm install –save-dev  gulp-imagemin</h4><h4 id="代码如下：-3"><a href="#代码如下：-3" class="headerlink" title="代码如下："></a>代码如下：</h4><pre><code>var gulp = require(&apos;gulp&apos;);
+
+var imagemin = require(&apos;gulp-imagemin&apos;);
+
+gulp.task(&apos;uglify-imagemin&apos;,function() {returngulp.src(&apos;src/images/*&apos;)
+
+    .pipe(imagemin())
+
+    .pipe(gulp.dest(&apos;build/images&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;uglify-imagemin&apos;]);
+</code></pre><h4 id="7、理解Browserify"><a href="#7、理解Browserify" class="headerlink" title="7、理解Browserify"></a>7、理解Browserify</h4><p>browserify是一个使用node支持的CommonJS模块标准 来为浏览器编译模块的，可以解决模块及依赖管理；</p>
+<h4 id="先来看看使用gulp常见的问题："><a href="#先来看看使用gulp常见的问题：" class="headerlink" title="先来看看使用gulp常见的问题："></a>先来看看使用gulp常见的问题：</h4><p>使用 gulp 过程中，偶尔会遇到 Streaming not supported 这样的错误。这通常是因为常规流与 vinyl 文件对象流有差异、</p>
+<p>gulp 插件默认使用了只支持 buffer （不支持 stream）的库。比如，不能把 Node 常规流直接传递给 gulp 及其插件。</p>
+<p>比如如下代码：会抛出异常的；</p>
+<pre><code>vargulp = require(&apos;gulp&apos;);
+
+varuglify = require(&apos;gulp-uglify&apos;);
+
+varconcat = require(&apos;gulp-concat&apos;);
+
+varrename = require(&apos;gulp-rename&apos;);varfs = require(&apos;fs&apos;);
+
+gulp.task(&apos;bundle&apos;,function() {returnfs.createReadStream(&apos;./test.txt&apos;)
+
+    .pipe(uglify())
+
+    .pipe(rename(&apos;bundle.min.js&apos;))
+
+    .pipe(gulp.dest(&apos;dist/&apos;));
+
+});
+
+gulp.task(&apos;default&apos;,[&apos;bundle&apos;]);
+</code></pre><p>文／原创/Dimple（github作者）<br>原文链接：<a href="https://cuidapao.github.io/" target="_blank" rel="external">https://cuidapao.github.io/</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“github作者”。</p>
+
+	</div>
+	<div class="meta split">
+		<time class="post-date" datetime="2016-10-16T13:02:24.000Z" itemprop="datePublished">2016-10-16</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="gulp-入门教程" data-title="gulp-入门教程" data-url="http://yoursite.com/2016/10/16/gulp-入门教程/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"Cuidapao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://img4.imgtn.bdimg.com/it/u=339094109,3568493369&amp;fm=21&amp;gp=0.jpg' alt='崔佳敏'>
+					<div class="media__body">
+						<h4>Dimple</h4>
+						<p class='site-description'>小树苗茁壮成长！</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/Cuidapao/Cuidapao.github.io.git" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
