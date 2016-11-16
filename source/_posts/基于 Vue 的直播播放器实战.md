@@ -1,5 +1,5 @@
 ---
-title: vue
+title: 基于vue直播播放器实战
 date: 2016-11-16 10:42:11
 tags: [vue,基于vue直播播放器实战]
 ---

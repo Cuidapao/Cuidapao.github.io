@@ -1,5 +1,5 @@
 ---
-title: test
+title: CSS3,实现简单的轮播图
 date: 2016-11-15 17:06:23
 tags: [CSS,实现简单的轮播图]
 ---
