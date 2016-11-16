@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>7种创建对象方法 | Dimple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="Dimple">
+	<img src="/favicon.png" alt="Dimple"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">新浪微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="http://t.qq.com/q945487939" target="_blank">腾讯微博</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://y.qq.com/portal/profile.html" target="_blank">QQ音乐 - 我的收藏</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      7种创建对象方法
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h1 id="7种对象的创建方法"><a href="#7种对象的创建方法" class="headerlink" title="7种对象的创建方法"></a>7种对象的创建方法</h1><h4 id="最近在复习红宝书的对象一章，红宝书中一共提到了7种创建对象的方式（这里所说的对象更偏向于面向对象编程中的对象）。7种方式分别是："><a href="#最近在复习红宝书的对象一章，红宝书中一共提到了7种创建对象的方式（这里所说的对象更偏向于面向对象编程中的对象）。7种方式分别是：" class="headerlink" title="最近在复习红宝书的对象一章，红宝书中一共提到了7种创建对象的方式（这里所说的对象更偏向于面向对象编程中的对象）。7种方式分别是："></a>最近在复习红宝书的对象一章，红宝书中一共提到了7种创建对象的方式（这里所说的对象更偏向于面向对象编程中的对象）。7种方式分别是：</h4><ul>
+<li>工厂模式</li>
+<li>构造函数模式</li>
+<li>原型模式</li>
+<li>构造函数和原型组合模式</li>
+<li>动态原型模式</li>
+<li>寄生构造模式</li>
+<li>稳妥构造模式</li>
+</ul>
+<h4 id="首先先解释几个概念"><a href="#首先先解释几个概念" class="headerlink" title="首先先解释几个概念"></a>首先先解释几个概念</h4><p>1、 对象下面例子中所有的Person函数</p>
+<p>2、 实例/对象实例 通过 <code>new Person()</code> or     <code>Person()</code>返回的对象，如<code>var person1 = new Person()</code>中的person1</p>
+<p>3、 原型对象<code>Person.prototype</code> </p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a><font style="color:orange">工厂模式</font></h3><pre><code>function Person() {
+   var o = new Object();
+    o.name = &apos;hanmeimei&apos;;
+    o.say = function() {
+    alert(this.name);
+ }
+    return o;
+ }
+ var person1 = Person();
+</code></pre><h5 id="优点：完成了返回一个对象的要求。"><a href="#优点：完成了返回一个对象的要求。" class="headerlink" title="优点：完成了返回一个对象的要求。"></a><font style="color:red">优点：</font>完成了返回一个对象的要求。</h5><h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="1-无法通过constructor识别对象，以为都是来自Object，无法得知来自Person"><a href="#1-无法通过constructor识别对象，以为都是来自Object，无法得知来自Person" class="headerlink" title="1.无法通过constructor识别对象，以为都是来自Object，无法得知来自Person"></a>1.无法通过constructor识别对象，以为都是来自Object，无法得知来自Person</h6><h6 id="2-每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。"><a href="#2-每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。" class="headerlink" title="2.每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。"></a>2.每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。</h6><h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a><font style="color:orange">构造函数模式</font></h3><pre><code>function Person() {
+      this.name = &apos;hanmeimei&apos;;
+      this.say = function() {
+        alert(this.name)
+      }
+  }
+var person1 = new Person();
+</code></pre><h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><h6 id="1-通过constructor或者instanceof可以识别对象实例的类别"><a href="#1-通过constructor或者instanceof可以识别对象实例的类别" class="headerlink" title="1.通过constructor或者instanceof可以识别对象实例的类别"></a>1.通过constructor或者instanceof可以识别对象实例的类别</h6><h6 id="2-可以通过new-关键字来创建对象实例，更像OO语言中创建对象实例"><a href="#2-可以通过new-关键字来创建对象实例，更像OO语言中创建对象实例" class="headerlink" title="2.可以通过new 关键字来创建对象实例，更像OO语言中创建对象实例"></a>2.可以通过new 关键字来创建对象实例，更像OO语言中创建对象实例</h6><h5 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="多个实例的say方法都是实现一样的效果，但是却存储了很多次（两个对象实例的say方法是不同的，因为存放的地址不同）"><a href="#多个实例的say方法都是实现一样的效果，但是却存储了很多次（两个对象实例的say方法是不同的，因为存放的地址不同）" class="headerlink" title="多个实例的say方法都是实现一样的效果，但是却存储了很多次（两个对象实例的say方法是不同的，因为存放的地址不同）"></a>多个实例的say方法都是实现一样的效果，但是却存储了很多次（两个对象实例的say方法是不同的，因为存放的地址不同）</h6><h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><font style="color:red">注意：</font></h4><ol>
+<li>构造函数模式隐试的在最后返回<code>return this</code> 所以在缺少new的情况下，会将属性和方法添加给全局对象，浏览器端就会添加给window对象。</li>
+<li>也可以根据<code>return this</code> 的特性调用call或者apply指定this。这一点在后面的继承有很大帮助。</li>
+</ol>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a><font style="color:orange">原型模式</font></h3><pre><code>function Person() {}
+Person.prototype.name = &apos;hanmeimei&apos;;
+Person.prototype.say = function() {
+      alert(this.name);
+}
+Person.prototype.friends = [&apos;lilei&apos;];
+var person1 = new Person();
+</code></pre><h5 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><h6 id="1-say方法是共享的了，所有的实例的say方法都指向同一个。"><a href="#1-say方法是共享的了，所有的实例的say方法都指向同一个。" class="headerlink" title="1.say方法是共享的了，所有的实例的say方法都指向同一个。"></a>1.say方法是共享的了，所有的实例的say方法都指向同一个。</h6><h6 id="2-可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。"><a href="#2-可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。" class="headerlink" title="2.可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。"></a>2.可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。</h6><pre><code>var person1 = new Person()
+Person.prototype.showFriends = function() {
+      console.log(this.friends)
+}
+person1.showFriends()  //[&apos;lilei&apos;]
+</code></pre><h5 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="1-出现引用的情况下会出现问题具体见下面代码："><a href="#1-出现引用的情况下会出现问题具体见下面代码：" class="headerlink" title="1.出现引用的情况下会出现问题具体见下面代码："></a>1.出现引用的情况下会出现问题具体见下面代码：</h6><pre><code>var person1 = new Person();
+var person2 = new Person();
+person1.friends.push(&apos;xiaoming&apos;);
+console.log(person2.friends)  //[&apos;lilei&apos;, &apos;xiaoming&apos;]
+</code></pre><h6 id="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"><a href="#因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。" class="headerlink" title="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"></a>因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。</h6><h6 id="2-第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象-Person-prototype-上找say方法，找到后就会在实力上添加这些方法or属性。"><a href="#2-第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象-Person-prototype-上找say方法，找到后就会在实力上添加这些方法or属性。" class="headerlink" title="2.第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象(Person.prototype)上找say方法，找到后就会在实力上添加这些方法or属性。"></a>2.第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象(Person.prototype)上找say方法，找到后就会在实力上添加这些方法or属性。</h6><h6 id="3-所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。"><a href="#3-所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。" class="headerlink" title="3.所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。"></a>3.所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。</h6><h4 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a><font style="color:red">注意：</font></h4><h6 id="1-优点②中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上"><a href="#1-优点②中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上" class="headerlink" title="1.优点②中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上"></a>1.优点②中存在一个问题就是直接通过对象字面量给<code>Person.prototype</code>进行赋值的时候会导致<code>constructor</code>改变，所以需要手动设置，其次就是通过对象字面量给<code>Person.prototype</code>进行赋值，会无法作用在之前创建的对象实例上</h6><pre><code>var person1 = new Person()
+Person.prototype = {
+        name: &apos;hanmeimei2&apos;,
+          setName: function(name){
+          this.name = name
+      }
+}
+person1.setName()   //Uncaught TypeError: person1.set is not a     function(…)
+</code></pre><p>####### 这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过<code>__proto__</code>访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的<code>__proto__</code>，并没有跟着一起更新，所以这就导致，实例还访问着原来的<code>Person.prototype</code>，所以建议不要通过这种方式去改变<code>Person.prototype</code>属性</p>
+<h3 id="构造函数和原型组合模式"><a href="#构造函数和原型组合模式" class="headerlink" title="构造函数和原型组合模式"></a><font style="color:orange">构造函数和原型组合模式</font></h3><pre><code>function Person(name) {
+      this.name = name
+      this.friends = [&apos;lilei&apos;]
+}
+Person.prototype.say = function() {
+      console.log(this.name)
+}
+var person1 = new Person(&apos;hanmeimei&apos;)
+person1.say() //hanmeimei
+</code></pre><h5 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><ol>
+<li>解决了原型模式对于引用对象的缺点</li>
+<li>解决了原型模式没有办法传递参数的缺点</li>
+<li>解决了构造函数模式不能共享方法的缺点</li>
+</ol>
+<h5 id="缺点：-3"><a href="#缺点：-3" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="和原型模式中注意①一样-（可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上）"><a href="#和原型模式中注意①一样-（可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上）" class="headerlink" title="和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）"></a>和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）</h6><h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a><font style="color:orange">动态原型模式</font></h3><pre><code>function Person(name) {
+      this.name = name
+       if(typeof this.say != &apos;function&apos;) {
+        Person.prototype.say = function(
+        alert(this.name)
+      }
+}
+</code></pre><h5 id="优点：-3"><a href="#优点：-3" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><ol>
+<li>可以在初次调用构造函数的时候就完成原型对象的修改</li>
+<li>修改能体现在所有的实例中</li>
+</ol>
+<h5 id="缺点：-4"><a href="#缺点：-4" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="红宝书都说这个方案完美了。。。。"><a href="#红宝书都说这个方案完美了。。。。" class="headerlink" title="红宝书都说这个方案完美了。。。。"></a>红宝书都说这个方案完美了。。。。</h6><h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a><font style="color:orange">寄生构造函数模式</font></h3><pre><code>function Person(name) {
+      var o = new Object()
+     o.name = name
+     o.say = function() {
+        alert(this.name)
+      }
+          return o
+    }
+var peron1 = new Person(&apos;hanmeimei&apos;)
+</code></pre><h5 id="优点：-4"><a href="#优点：-4" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><h6 id="和工厂模式基本一样，除了多了个new操作符"><a href="#和工厂模式基本一样，除了多了个new操作符" class="headerlink" title="和工厂模式基本一样，除了多了个new操作符"></a>和工厂模式基本一样，除了多了个new操作符</h6><h5 id="缺点：-5"><a href="#缺点：-5" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="和工厂模式一样，不能区分实例的类别"><a href="#和工厂模式一样，不能区分实例的类别" class="headerlink" title="和工厂模式一样，不能区分实例的类别"></a>和工厂模式一样，不能区分实例的类别</h6><h3 id="稳妥构造模式"><a href="#稳妥构造模式" class="headerlink" title="稳妥构造模式"></a><font style="color:orange">稳妥构造模式</font></h3><pre><code>function Person(name) {
+     var o = new Object()
+      o.say = function() {
+    alert(name)
+   }
+}
+var person1 = new Person(&apos;hanmeimei&apos;);
+person1.name  // undefined
+person1.say() //hanmeimei
+</code></pre><h5 id="优点：-5"><a href="#优点：-5" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h5><h6 id="安全，name好像成为了私有变量，只能通过say方法去访问"><a href="#安全，name好像成为了私有变量，只能通过say方法去访问" class="headerlink" title="安全，name好像成为了私有变量，只能通过say方法去访问"></a>安全，name好像成为了私有变量，只能通过say方法去访问</h6><h5 id="缺点：-6"><a href="#缺点：-6" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h5><h6 id="不能区分实例的类别"><a href="#不能区分实例的类别" class="headerlink" title="不能区分实例的类别"></a>不能区分实例的类别</h6><p>🔗原文链接: [<a href="http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" target="_blank" rel="external">http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/</a>) by @alvinyuxt</p>
+
+	</div>
+	<div class="meta split">
+		<time class="post-date" datetime="2016-11-16T06:09:54.000Z" itemprop="datePublished">2016-11-16</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="hanshu" data-title="7种创建对象方法" data-url="http://yoursite.com/2016/11/16/hanshu/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"Cuidapao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://img4.imgtn.bdimg.com/it/u=339094109,3568493369&amp;fm=21&amp;gp=0.jpg' alt='崔佳敏'>
+					<div class="media__body">
+						<h4>Dimple</h4>
+						<p class='site-description'>小树苗茁壮成长！</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/6027477149/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/Cuidapao/Cuidapao.github.io.git" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
