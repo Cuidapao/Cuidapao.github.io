@@ -110,14 +110,23 @@
     return o;
  }
  var person1 = Person();
-</code></pre><h4 id="优点：完成了返回一个对象的要求。"><a href="#优点：完成了返回一个对象的要求。" class="headerlink" title="优点：完成了返回一个对象的要求。"></a><font style="color:red">优点：</font>完成了返回一个对象的要求。</h4><h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="1-无法通过constructor识别对象，以为都是来自Object，无法得知来自Person"><a href="#1-无法通过constructor识别对象，以为都是来自Object，无法得知来自Person" class="headerlink" title="1.无法通过constructor识别对象，以为都是来自Object，无法得知来自Person"></a>1.无法通过constructor识别对象，以为都是来自Object，无法得知来自Person</h5><h5 id="2-每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。"><a href="#2-每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。" class="headerlink" title="2.每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。"></a>2.每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。</h5><h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a><font style="color:orange">构造函数模式</font></h3><pre><code>function Person() {
+</code></pre><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
+<li>完成了返回一个对象的要求。</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><ol>
+<li><p>无法通过constructor识别对象，以为都是来自Object，无法得知来自Person</p>
+</li>
+<li><p>每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。</p>
+</li>
+</ol>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a><font style="color:orange">构造函数模式</font></h3><pre><code>function Person() {
       this.name = &apos;hanmeimei&apos;;
       this.say = function() {
         alert(this.name)
       }
   }
 var person1 = new Person();
-</code></pre><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
+</code></pre><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
 <li>通过constructor或者instanceof可以识别对象实例的类别</li>
 <li>可以通过new 关键字来创建对象实例，更像OO语言中创建对象实例</li>
 </ol>
@@ -131,41 +140,43 @@ var person1 = new Person();
 <h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a><font style="color:orange">原型模式</font></h3><pre><code>function Person() {}
 Person.prototype.name = &apos;hanmeimei&apos;;
 Person.prototype.say = function() {
-      alert(this.name);
+     alert(this.name);
 }
 Person.prototype.friends = [&apos;lilei&apos;];
 var person1 = new Person();
-</code></pre><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
+</code></pre><h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
 <li><p>say方法是共享的了，所有的实例的say方法都指向同一个。</p>
 </li>
 <li><p>可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。</p>
-<p> var person1 = new Person()<br> Person.prototype.showFriends = function() {</p>
-<pre><code>console.log(this.friends)
-</code></pre><p> }<br> person1.showFriends()  //[‘lilei’]</p>
 </li>
 </ol>
-<h4 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><ol>
-<li><p>出现引用的情况下会出现问题具体见下面代码：</p>
-<p> var person1 = new Person();<br> var person2 = new Person();<br> person1.friends.push(‘xiaoming’);<br> console.log(person2.friends)  //[‘lilei’, ‘xiaoming’]</p>
-</li>
-</ol>
-<h5 id="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"><a href="#因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。" class="headerlink" title="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"></a>因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。</h5><ol>
+<hr>
+<pre><code>var person1 = new Person()
+Person.prototype.showFriends = function() {
+      console.log(this.friends)
+}
+person1.showFriends()  //[&apos;lilei&apos;]
+</code></pre><h4 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="出现引用的情况下会出现问题具体见下面代码："><a href="#出现引用的情况下会出现问题具体见下面代码：" class="headerlink" title="出现引用的情况下会出现问题具体见下面代码："></a>出现引用的情况下会出现问题具体见下面代码：</h5><pre><code>var person1 = new Person();
+var person2 = new Person();
+person1.friends.push(&apos;xiaoming&apos;);
+console.log(person2.friends)  //[&apos;lilei&apos;, &apos;xiaoming&apos;]
+</code></pre><h5 id="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"><a href="#因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。" class="headerlink" title="因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。"></a>因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。</h5><ol>
 <li>第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象(Person.prototype)上找say方法，找到后就会在实力上添加这些方法or属性。    </li>
 </ol>
 <ol>
 <li>所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。</li>
 </ol>
-<h3 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a><font style="color:red">注意：</font></h3><ol>
-<li><p>优点②中存在一个问题就是直接通过对象字面量给<code>Person.prototype</code>进行赋值的时候会导致<code>constructor</code>改变，所以需要手动设置，其次就是通过对象字面量给<code>Person.prototype</code>进行赋值，会无法作用在之前创建的对象实例上</p>
-<p> var person1 = new Person()<br> Person.prototype = {</p>
-<pre><code>  name: &apos;hanmeimei2&apos;,
-    setName: function(name){
-    this.name = name
+<h3 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a><font style="color:red">注意：</font></h3><p>优点②中存在一个问题就是直接通过对象字面量给<code>Person.prototype</code>进行赋值的时候会导致<code>constructor</code>改变，所以需要手动设置，其次就是通过对象字面量给<code>Person.prototype</code>进行赋值，会无法作用在之前创建的对象实例上</p>
+<pre><code>var person1 = new Person()
+Person.prototype = {
+        name: &apos;hanmeimei2&apos;,
+          setName: function(name){
+          this.name = name
+      }
 }
-</code></pre><p> }<br> person1.setName()   //Uncaught TypeError: person1.set is not a     function(…)</p>
-</li>
-</ol>
-<h5 id="这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性-Prototype-，可以通过-proto-访问。我们通过对象字面量修改了Person-prototype指向的地址，然而对象实例的-proto-，并没有跟着一起更新，所以这就导致，实例还访问着原来的Person-prototype，所以建议不要通过这种方式去改变Person-prototype属性"><a href="#这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性-Prototype-，可以通过-proto-访问。我们通过对象字面量修改了Person-prototype指向的地址，然而对象实例的-proto-，并没有跟着一起更新，所以这就导致，实例还访问着原来的Person-prototype，所以建议不要通过这种方式去改变Person-prototype属性" class="headerlink" title="这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过__proto__访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的__proto__，并没有跟着一起更新，所以这就导致，实例还访问着原来的Person.prototype，所以建议不要通过这种方式去改变Person.prototype属性"></a>这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过<code>__proto__</code>访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的<code>__proto__</code>，并没有跟着一起更新，所以这就导致，实例还访问着原来的<code>Person.prototype</code>，所以建议不要通过这种方式去改变<code>Person.prototype</code>属性</h5><h3 id="构造函数和原型组合模式"><a href="#构造函数和原型组合模式" class="headerlink" title="构造函数和原型组合模式"></a><font style="color:orange">构造函数和原型组合模式</font></h3><pre><code>function Person(name) {
+person1.setName()   //Uncaught TypeError: person1.set     is not a     function(…)
+</code></pre><p>这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过<code>__proto__</code>访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的<code>__proto__</code>，并没有跟着一起更新，所以这就导致，实例还访问着原来的<code>Person.prototype</code>，所以建议不要通过这种方式去改变<code>Person.prototype</code>属性</p>
+<h3 id="构造函数和原型组合模式"><a href="#构造函数和原型组合模式" class="headerlink" title="构造函数和原型组合模式"></a><font style="color:orange">构造函数和原型组合模式</font></h3><pre><code>function Person(name) {
       this.name = name
       this.friends = [&apos;lilei&apos;]
 }
@@ -174,19 +185,22 @@ Person.prototype.say = function() {
 }
 var person1 = new Person(&apos;hanmeimei&apos;)
 person1.say() //hanmeimei
-</code></pre><h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
+</code></pre><h4 id="优点：-3"><a href="#优点：-3" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
 <li>解决了原型模式对于引用对象的缺点</li>
 <li>解决了原型模式没有办法传递参数的缺点</li>
 <li>解决了构造函数模式不能共享方法的缺点</li>
 </ol>
-<h4 id="缺点：-3"><a href="#缺点：-3" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="和原型模式中注意①一样-（可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上）"><a href="#和原型模式中注意①一样-（可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person-prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person-prototype进行赋值，会无法作用在之前创建的对象实例上）" class="headerlink" title="和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）"></a>和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）</h5><h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a><font style="color:orange">动态原型模式</font></h3><pre><code>function Person(name) {
+<h4 id="缺点：-3"><a href="#缺点：-3" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><ol>
+<li>和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）</li>
+</ol>
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a><font style="color:orange">动态原型模式</font></h3><pre><code>function Person(name) {
       this.name = name
        if(typeof this.say != &apos;function&apos;) {
         Person.prototype.say = function(
         alert(this.name)
       }
 }
-</code></pre><h4 id="优点：-3"><a href="#优点：-3" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
+</code></pre><h4 id="优点：-4"><a href="#优点：-4" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><ol>
 <li>可以在初次调用构造函数的时候就完成原型对象的修改</li>
 <li>修改能体现在所有的实例中</li>
 </ol>
@@ -199,7 +213,7 @@ person1.say() //hanmeimei
           return o
     }
 var peron1 = new Person(&apos;hanmeimei&apos;)
-</code></pre><h4 id="优点：-4"><a href="#优点：-4" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><h5 id="和工厂模式基本一样，除了多了个new操作符"><a href="#和工厂模式基本一样，除了多了个new操作符" class="headerlink" title="和工厂模式基本一样，除了多了个new操作符"></a>和工厂模式基本一样，除了多了个new操作符</h5><h4 id="缺点：-5"><a href="#缺点：-5" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="和工厂模式一样，不能区分实例的类别"><a href="#和工厂模式一样，不能区分实例的类别" class="headerlink" title="和工厂模式一样，不能区分实例的类别"></a>和工厂模式一样，不能区分实例的类别</h5><h3 id="稳妥构造模式"><a href="#稳妥构造模式" class="headerlink" title="稳妥构造模式"></a><font style="color:orange">稳妥构造模式</font></h3><pre><code>function Person(name) {
+</code></pre><h4 id="优点：-5"><a href="#优点：-5" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><h5 id="和工厂模式基本一样，除了多了个new操作符"><a href="#和工厂模式基本一样，除了多了个new操作符" class="headerlink" title="和工厂模式基本一样，除了多了个new操作符"></a>和工厂模式基本一样，除了多了个new操作符</h5><h4 id="缺点：-5"><a href="#缺点：-5" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="和工厂模式一样，不能区分实例的类别"><a href="#和工厂模式一样，不能区分实例的类别" class="headerlink" title="和工厂模式一样，不能区分实例的类别"></a>和工厂模式一样，不能区分实例的类别</h5><h3 id="稳妥构造模式"><a href="#稳妥构造模式" class="headerlink" title="稳妥构造模式"></a><font style="color:orange">稳妥构造模式</font></h3><pre><code>function Person(name) {
      var o = new Object()
       o.say = function() {
     alert(name)
@@ -208,7 +222,8 @@ var peron1 = new Person(&apos;hanmeimei&apos;)
 var person1 = new Person(&apos;hanmeimei&apos;);
 person1.name  // undefined
 person1.say() //hanmeimei
-</code></pre><h4 id="优点：-5"><a href="#优点：-5" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><h5 id="安全，name好像成为了私有变量，只能通过say方法去访问"><a href="#安全，name好像成为了私有变量，只能通过say方法去访问" class="headerlink" title="安全，name好像成为了私有变量，只能通过say方法去访问"></a>安全，name好像成为了私有变量，只能通过say方法去访问</h5><h4 id="缺点：-6"><a href="#缺点：-6" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="不能区分实例的类别"><a href="#不能区分实例的类别" class="headerlink" title="不能区分实例的类别"></a>不能区分实例的类别</h5><p>🔗原文链接: [<a href="http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" target="_blank" rel="external">http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/</a>) by @alvinyuxt</p>
+</code></pre><h4 id="优点：-6"><a href="#优点：-6" class="headerlink" title="优点："></a><font style="color:red">优点：</font></h4><p>安全，name好像成为了私有变量，只能通过say方法去访问</p>
+<h4 id="缺点：-6"><a href="#缺点：-6" class="headerlink" title="缺点："></a><font style="color:red">缺点：</font></h4><h5 id="不能区分实例的类别"><a href="#不能区分实例的类别" class="headerlink" title="不能区分实例的类别"></a>不能区分实例的类别</h5><p>🔗原文链接: [<a href="http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" target="_blank" rel="external">http://alvinyuxt.github.io/2016/11/11/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/</a>) by @alvinyuxt</p>
 
 	</div>
 	<div class="meta split">

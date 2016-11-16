@@ -42,13 +42,15 @@ tags: [javascript,7种创建对象的方法]
 	 
 
 
-#### <font style="color:red">优点：</font>完成了返回一个对象的要求。
+#### <font style="color:red">优点：</font>
+1. 完成了返回一个对象的要求。
 
 
 #### <font style="color:red">缺点：</font>
 
-##### 1.无法通过constructor识别对象，以为都是来自Object，无法得知来自Person
-##### 2.每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。
+1. 无法通过constructor识别对象，以为都是来自Object，无法得知来自Person
+
+2. 每次通过Person创建对象的时候，所有的say方法都是一样的，但是却存储了多次，浪费资源。
 
 
 ### <font style="color:orange">构造函数模式</font>
@@ -82,7 +84,7 @@ tags: [javascript,7种创建对象的方法]
 	function Person() {}
 	Person.prototype.name = 'hanmeimei';
 	Person.prototype.say = function() {
- 		 alert(this.name);
+ 		alert(this.name);
 	}
 	Person.prototype.friends = ['lilei'];
 	var person1 = new Person();
@@ -93,15 +95,18 @@ tags: [javascript,7种创建对象的方法]
 
 2. 可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。
 
+---
+
+
 	var person1 = new Person()
 	Person.prototype.showFriends = function() {
   		console.log(this.friends)
 	}
 	person1.showFriends()  //['lilei']
-	
+
 #### <font style="color:red">缺点：</font>	
 
-1. 出现引用的情况下会出现问题具体见下面代码：
+##### 出现引用的情况下会出现问题具体见下面代码：
 
 	var person1 = new Person();
 	var person2 = new Person();
@@ -119,7 +124,7 @@ tags: [javascript,7种创建对象的方法]
 
 ### <font style="color:red">注意：</font>
 
-1. 优点②中存在一个问题就是直接通过对象字面量给`Person.prototype`进行赋值的时候会导致`constructor`改变，所以需要手动设置，其次就是通过对象字面量给`Person.prototype`进行赋值，会无法作用在之前创建的对象实例上
+优点②中存在一个问题就是直接通过对象字面量给`Person.prototype`进行赋值的时候会导致`constructor`改变，所以需要手动设置，其次就是通过对象字面量给`Person.prototype`进行赋值，会无法作用在之前创建的对象实例上
 
 	var person1 = new Person()
 	Person.prototype = {
@@ -128,9 +133,11 @@ tags: [javascript,7种创建对象的方法]
       		this.name = name
   		}
 	}
-	person1.setName()   //Uncaught TypeError: person1.set is not a 	function(…)
+	person1.setName()   //Uncaught TypeError: person1.set 	is not a 	function(…)
 	
-##### 这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过`__proto__`访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的`__proto__`，并没有跟着一起更新，所以这就导致，实例还访问着原来的`Person.prototype`，所以建议不要通过这种方式去改变`Person.prototype`属性
+
+
+这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过`__proto__`访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的`__proto__`，并没有跟着一起更新，所以这就导致，实例还访问着原来的`Person.prototype`，所以建议不要通过这种方式去改变`Person.prototype`属性
 
 
 ### <font style="color:orange">构造函数和原型组合模式</font>
@@ -156,7 +163,7 @@ tags: [javascript,7种创建对象的方法]
 #### <font style="color:red">缺点：</font>
 
 
-##### 和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）
+1. 和原型模式中注意①一样 （可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。针对这个问题中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上）
 
 ### <font style="color:orange">动态原型模式</font>
 
@@ -211,9 +218,9 @@ tags: [javascript,7种创建对象的方法]
 	person1.name  // undefined
 	person1.say() //hanmeimei
 	
-#### <font style="color:red">优点：</font>	
+#### <font style="color:red">优点：</font>
 
-##### 安全，name好像成为了私有变量，只能通过say方法去访问
+安全，name好像成为了私有变量，只能通过say方法去访问
 
 
 #### <font style="color:red">缺点：</font>
