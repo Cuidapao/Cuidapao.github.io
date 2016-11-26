@@ -4,7 +4,7 @@ date: 2016-11-26 11:05:49
 tags: [Vue]
 ---
 
-###本文阐述了雅各布·沙茨对于vue.js的观点，个人看完之后深有感触！
+### 本文阐述了雅各布·沙茨对于vue.js的观点，个人看完之后深有感触！
 
 I had a great conversation with an interviewee a few weeks ago about how one should go about choosing a JavaScript framework.
 
